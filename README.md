@@ -1,10 +1,16 @@
 # Archangel
 
-Scripts to run a node on the Archangel private Ethereum network
+Script to run a node on the Archangel private Ethereum network
 
 ## Pre-requisites
 
-Using these scripts requires [Geth](https://ethereum.github.io/go-ethereum/install/), the Go Ethereum client.
+Using this script requires [Geth](https://ethereum.github.io/go-ethereum/install/), the Go Ethereum client.
+
+## Running the client
+
+```sh
+ ./archangel-ethereum-network.sh
+```
 
 ## Contributing
 

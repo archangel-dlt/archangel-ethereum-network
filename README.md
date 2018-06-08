@@ -21,28 +21,27 @@ By default, the script will
 
 These defaults can be override using environment variables or command line arguments :
 
-* `ARCHANGEL_ETHEREUM_DATA_DIR=<directory>`
-* `ARCHANGEL_ETHEREUM_PORT=<port number>`
-* `ARCHANGEL_ETHEREUM_RPC_HOST=<rpc hostname or ip>`
-* `ARCHANGEL_ETHEREUM_RPC_PORT=<rpc port number>`
+* `ARCHANGEL_ETHEREUM_DATA_DIR=<directory>`, `--datadir=<directory>`
+* `ARCHANGEL_ETHEREUM_PORT=<port number>`, `--port=<port number>`
+* `ARCHANGEL_ETHEREUM_RPC_HOST=<rpc hostname or ip>`, `--rpchost=<rpc hostname or ip>`
+* `ARCHANGEL_ETHEREUM_RPC_PORT=<rpc port number>`, `--rpcport=<rpc port number>`
 
-* `--datadir=<directory>`
-* `--port=<port number>`
-* `--rpchost=<rpc hostname or ip>`
-* `--rpcport=<rpc port number>`
 
 If an environment variable is and the equivalent command line argument passed, then the command line argument will be used.
 
 There are two additional options :
-* `ARCHANGEL_ETHEREUM_GETH=<path to geth>`
-* `--geth=<path to geth>`
+* `ARCHANGEL_ETHEREUM_GETH=<path to geth>`, `--geth=<path to geth>`
 
 The script expects to find `geth` on the path.  However, if you have it installed elsewhere use this option to let the script know.
 
-* `ARCHANGEL_ETHEREUM_ENABLE_RPC=no`
-* `--no-rpc`
+* `ARCHANGEL_ETHEREUM_ENABLE_RPC=no`, `--no-rpc`
 
 Use this option to turn off the RPC API listener.
+
+* `--`
+
+The special option `--` marks the end of the options. The script will pass any arguments after `--` directly to geth.
+
 
 ## Contributing
 

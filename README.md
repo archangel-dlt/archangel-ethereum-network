@@ -50,3 +50,7 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/archan
 ## Code of Conduct
 
 Everyone interacting in the Archangel project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/archangel-dlt/archangel-ethereum-network/blob/master/CODE_OF_CONDUCT.md).
+
+## License
+
+This software is available under the terms of [the MIT License](https://github.com/archangel-dlt/archangel-ethereum-network/blob/master/LICENSE.md).

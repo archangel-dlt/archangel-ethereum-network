@@ -14,6 +14,10 @@ if [ "$ARCHANGEL_ETHEREUM_PORT" = "" ]; then
   ARCHANGEL_ETHEREUM_PORT=30303
 fi
 
+if [ "$ARCHANGEL_ETHEREUM_ENABLE_RPC" = "" ]; then
+  ARCHANGEL_ETHEREUM_ENABLE_RPC=true
+fi
+
 if [ "$ARCHANGEL_ETHEREUM_RPC_HOST" = "" ]; then
   ARCHANGEL_ETHEREUM_RPC_HOST=localhost
 fi
@@ -22,17 +26,54 @@ if [ "$ARCHANGEL_ETHEREUM_RPC_PORT" = "" ]; then
   ARCHANGEL_ETHEREUM_RPC_PORT=8545
 fi
 
-if [ "$1" != "--no-rpc" ]; then
+for i in "$@"
+do
+case $i in
+  --geth=*)
+  ARCHANGEL_ETHEREUM_GETH="${i#*=}"
+  shift
+  ;;
+  --datadir=*)
+  ARCHANGEL_ETHEREUM_DATA_DIR="${i#*=}"
+  shift
+  ;;
+  --port=*)
+  ARCHANGEL_ETHEREUM_PORT="${i#*=}"
+  shift
+  ;;
+  --rpcaddr=*)
+  ARCHANGEL_ETHEREUM_RPC_HOST="${i#*=}"
+  shift
+  ;;
+  --rpcport=*)
+  ARCHANGEL_ETHEREUM_RPC_PORT="${i#*=}"
+  shift
+  ;;
+  --no-rpc)
+  ARCHANGEL_ETHEREUM_ENABLE_RPC=false
+  shift
+  ;;
+  --)
+  shift
+  break
+  ;;
+  *)
+  echo Unknown argument $i
+  ;;
+esac
+done
+
+
+if [ "$ARCHANGEL_ETHEREUM_ENABLE_RPC" = "true" ]; then
   RPC_ARGS="--rpc --rpcaddr $ARCHANGEL_ETHEREUM_RPC_HOST --rpcport $ARCHANGEL_ETHEREUM_RPC_PORT --rpcapi 'personal,db,eth,net,web3,txpool,miner'"
-else
-  shift 1
 fi
 
-# run the Geth client
+# Initialise if necessary
 if [ ! -f "$ARCHANGEL_ETHEREUM_DATA_DIR/geth/chaindata/CURRENT" ]; then
   $ARCHANGEL_ETHEREUM_GETH --datadir $ARCHANGEL_ETHEREUM_DATA_DIR init $SCRIPT_DIR/archangel-genesis.json
 fi
 
+# And off we go!
 $ARCHANGEL_ETHEREUM_GETH \
   --datadir $ARCHANGEL_ETHEREUM_DATA_DIR \
   --networkid 3151 \

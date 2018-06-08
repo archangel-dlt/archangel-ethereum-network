@@ -12,6 +12,38 @@ Using this script requires [Geth](https://ethereum.github.io/go-ethereum/install
  ./archangel-ethereum-network.sh
 ```
 
+The script will, in necessary, initialise the genesis block.
+
+By default, the script will
+  * Store its data in a directory immediately below the script's location
+  * Use port 30303 for incoming connections from the Archangel Ethereum network
+  * Listen on localhost:8545 for RPC API requests (eg from MetaMask)
+
+These defaults can be override using environment variables or command line arguments :
+
+* `ARCHANGEL_ETHEREUM_DATA_DIR=<directory>`
+* `ARCHANGEL_ETHEREUM_PORT=<port number>`
+* `ARCHANGEL_ETHEREUM_RPC_HOST=<rpc hostname or ip>`
+* `ARCHANGEL_ETHEREUM_RPC_PORT=<rpc port number>`
+
+* `--datadir=<directory>`
+* `--port=<port number>`
+* `--rpchost=<rpc hostname or ip>`
+* `--rpcport=<rpc port number>`
+
+If an environment variable is and the equivalent command line argument passed, then the command line argument will be used.
+
+There are two additional options :
+* `ARCHANGEL_ETHEREUM_GETH=<path to geth>`
+* `--geth=<path to geth>`
+
+The script expects to find `geth` on the path.  However, if you have it installed elsewhere use this option to let the script know.
+
+* `ARCHANGEL_ETHEREUM_ENABLE_RPC=no`
+* `--no-rpc`
+
+Use this option to turn off the RPC API listener.
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/archangel-dlt/archangel-ethereum-network.

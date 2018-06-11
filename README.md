@@ -12,7 +12,7 @@ Using this script requires [Geth](https://ethereum.github.io/go-ethereum/install
  ./archangel-ethereum-network.sh
 ```
 
-The script will, in necessary, initialise the genesis block.
+The script will, if necessary, initialise the genesis block.
 
 By default, the script will
   * Store its data in a directory immediately below the script's location

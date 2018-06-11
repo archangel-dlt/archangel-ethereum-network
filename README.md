@@ -27,7 +27,7 @@ These defaults can be override using environment variables or command line argum
 * `ARCHANGEL_ETHEREUM_RPC_PORT=<rpc port number>`, `--rpcport=<rpc port number>`
 
 
-If an environment variable is and the equivalent command line argument passed, then the command line argument will be used.
+If an environment variable is set and the equivalent command line argument passed, then the command line argument will be used.
 
 There are two additional options :
 * `ARCHANGEL_ETHEREUM_GETH=<path to geth>`, `--geth=<path to geth>`

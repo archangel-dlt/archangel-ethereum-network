@@ -25,7 +25,7 @@ These defaults can be override using environment variables or command line argum
 * `ARCHANGEL_ETHEREUM_PORT=<port number>`, `--port=<port number>`
 * `ARCHANGEL_ETHEREUM_RPC_HOST=<rpc hostname or ip>`, `--rpchost=<rpc hostname or ip>`
 * `ARCHANGEL_ETHEREUM_RPC_PORT=<rpc port number>`, `--rpcport=<rpc port number>`
-
+* `ARCHANGEL_BOOTNODE=<bootnodes>`, `--bootnode=<bootnodes>`
 
 If an environment variable is set and the equivalent command line argument passed, then the command line argument will be used.
 

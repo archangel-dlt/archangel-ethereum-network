@@ -5,6 +5,7 @@ $ARCHANGEL_ETHEREUM_PORT=30303
 $ARCHANGEL_ETHEREUM_ENABLE_RPC="true"
 $ARCHANGEL_ETHEREUM_RPC_HOST="localhost"
 $ARCHANGEL_ETHEREUM_RPC_PORT=8545
+$ARCHANGEL_BOOTNODE="enode://21ceb67bc34760d8776b8adc3a60ecd54c9c7d609c4e54ba4c3ca5c2de08df587d224826f3cae9114952027327f5d23100eb61451c4b2a5ff14139c50ff65f20@139.162.253.192:30310"
 
 if ($ARCHANGEL_ETHEREUM_ENABLE_RPC -eq "true") {
   $RPC_ARGS=@("--rpc", "--rpcaddr", $ARCHANGEL_ETHEREUM_RPC_HOST, "--rpcport", $ARCHANGEL_ETHEREUM_RPC_PORT, "--rpcapi", "personal,db,eth,net,web3,tx,poolminer")
@@ -20,9 +21,8 @@ if (!(Test-Path "$ARCHANGEL_ETHEREUM_DATA_DIR\geth\chaindata\CURRENT")) {
 Write-Host "Starting Archangel Ethereum network client"
 & $ARCHANGEL_ETHEREUM_GETH `
   --datadir $ARCHANGEL_ETHEREUM_DATA_DIR `
-  --networkid 3151 `
+  --networkid 53419 `
   --port $ARCHANGEL_ETHEREUM_PORT `
-  --bootnodes enode://98d6401f594cd1e68de946680f009bcb504f61c5e755dc37e548c59b9dcc4651c30f74aaffb3f88c87ec240c763180a3ae113b125c6166dc23af8d3f6fd0a89c@172.104.142.159:30301 ` `
+  --bootnodes $ARCHANGEL_BOOTNODE
   $RPC_ARGS `
   $1 $2 $3 $4 $5 $6 $7 $8 $9
-

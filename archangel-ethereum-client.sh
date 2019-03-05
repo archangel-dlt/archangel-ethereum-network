@@ -58,6 +58,10 @@ case $i in
   ARCHANGEL_ETHEREUM_RPC_PORT="${i#*=}"
   shift
   ;;
+  --rpcapi=*)
+  ARCHANGEL_ETHEREUM_RPC_PORT="${i#*=}"
+  shift
+  ;;
   --no-rpc)
   ARCHANGEL_ETHEREUM_ENABLE_RPC=false
   shift

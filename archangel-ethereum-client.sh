@@ -26,6 +26,10 @@ if [ "$ARCHANGEL_ETHEREUM_RPC_PORT" = "" ]; then
   ARCHANGEL_ETHEREUM_RPC_PORT=8545
 fi
 
+if [ "$ARCHANGEL_ETHEREUM_RPC_API" = "" ]; then
+  ARCHANGEL_ETHEREUM_RPC_API='personal,db,eth,net,web3,txpool,miner'
+fi
+
 if [ "$ARCHANGEL_BOOTNODE" = "" ]; then
   ARCHANGEL_BOOTNODE="enode://21ceb67bc34760d8776b8adc3a60ecd54c9c7d609c4e54ba4c3ca5c2de08df587d224826f3cae9114952027327f5d23100eb61451c4b2a5ff14139c50ff65f20@139.162.253.192:30310"
 fi
@@ -54,6 +58,10 @@ case $i in
   ARCHANGEL_ETHEREUM_RPC_PORT="${i#*=}"
   shift
   ;;
+  --rpcapi=*)
+  ARCHANGEL_ETHEREUM_RPC_PORT="${i#*=}"
+  shift
+  ;;
   --no-rpc)
   ARCHANGEL_ETHEREUM_ENABLE_RPC=false
   shift
@@ -75,7 +83,7 @@ done
 ARCHANGEL_GENESIS_JSON="archangel-user-study-genesis.json"
 
 if [ "$ARCHANGEL_ETHEREUM_ENABLE_RPC" = "true" ]; then
-  RPC_ARGS="--rpc --rpcaddr $ARCHANGEL_ETHEREUM_RPC_HOST --rpcport $ARCHANGEL_ETHEREUM_RPC_PORT --rpcapi 'personal,db,eth,net,web3,txpool,miner'"
+  RPC_ARGS="--rpc --rpcaddr $ARCHANGEL_ETHEREUM_RPC_HOST --rpcport $ARCHANGEL_ETHEREUM_RPC_PORT --rpcapi $ARCHANGEL_ETHEREUM_RPC_API"
 fi
 
 # Initialise if necessary

@@ -23,6 +23,6 @@ Write-Host "Starting Archangel Ethereum network client"
   --datadir $ARCHANGEL_ETHEREUM_DATA_DIR `
   --networkid 53419 `
   --port $ARCHANGEL_ETHEREUM_PORT `
-  --bootnodes $ARCHANGEL_BOOTNODE
+  --bootnodes $ARCHANGEL_BOOTNODE `
   $RPC_ARGS `
   $1 $2 $3 $4 $5 $6 $7 $8 $9

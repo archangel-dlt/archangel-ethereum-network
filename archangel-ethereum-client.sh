@@ -27,7 +27,7 @@ if [ "$ARCHANGEL_ETHEREUM_RPC_PORT" = "" ]; then
 fi
 
 if [ "$ARCHANGEL_ETHEREUM_RPC_API" = "" ]; then
-  ARCHANGEL_ETHEREUM_RPC_API='personal,db,eth,net,web3,txpool,miner'
+  ARCHANGEL_ETHEREUM_RPC_API='eth,net,web3'
 fi
 
 if [ "$ARCHANGEL_BOOTNODE" = "" ]; then

@@ -58,7 +58,7 @@ and then run using
 ```
 This will then sync up with the network directly, using the bootnode that is specified by default in the dockerfiles environment variables. The dockerfile utilises the script above, but provides a containerised environment to minimise and simplify any setup overhead. Also worth noting is that the dockerfile limits the exposed API to only the eth,net,web3 APIs. This can be overridden using the relevant environment variable or command line argument for the script. Any additional arguments to the script can be passed as the command to the image; i.e. to start mining.
 ```sh
-  docker run -it archangel-node --mine
+  docker run -it archangel-node -- --mine
 ```
 
 ## Contributing
